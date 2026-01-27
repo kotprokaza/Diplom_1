@@ -1,26 +1,34 @@
-# Diplom_1 - Unit Tests for Stellar Burgers
+# Diplom_1 — Юнит-тесты для Stellar Burgers
 
-## Project Description
-Unit tests for the `Burger` class of Stellar Burgers application. Yandex Practicum diploma project.
+## Описание проекта
+Юнит-тесты для класса `Burger` приложения Stellar Burgers. Дипломный проект Яндекс.Практикума.
 
-## Code Coverage
-- **Burger**: 100% ✅
-- **Database**: 100%
-- **Ingredient**: 100%
-- **Bun**: 100%
-- **IngredientType**: 100%
-- **Praktikum**: 94%
-- **Total**: 99%
+## Покрытие кода (JaCoCo отчёт)
+- **Burger:** 100% ✅
+- **Database:** 100% ✅
+- **Ingredient:** 100% ✅
+- **Bun:** 100% ✅
+- **IngredientType:** 100% ✅
+- **Praktikum:** 100% ✅
+- **Итого:** 100% ✅
 
-## Technologies
+## Отчёт о тестировании
+✅ Все тесты проходят успешно (27 тестов)  
+✅ Покрытие кода составляет **100%**  
+✅ Использованы Mockito, параметризация, стабы  
+✅ Сгенерирован отчёт JaCoCo (приложен к пулл-реквесту)  
+✅ Каждый тест проверяет только одну функциональность  
+✅ Исправлены magic numbers в параметризованных тестах
+
+## Технологии
 - Java 11
 - JUnit 4
 - Mockito 4.8.0
 - JaCoCo 0.8.11
 - Maven
 
-## How to Run Tests
+## Запуск тестов
 ```bash
 mvn clean test
 mvn jacoco:report
-open target/site/jacoco/index.html
+Отчёт о покрытии будет создан в: target/site/jacoco/index.html
