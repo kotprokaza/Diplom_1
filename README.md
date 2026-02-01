@@ -3,7 +3,11 @@
 ## Описание проекта
 Юнит-тесты для класса `Burger` приложения Stellar Burgers. Дипломный проект Яндекс.Практикума.
 
+## Веб-приложение
+Тестируемое веб-приложение: [Stellar Burgers](https://stellarburgers.education-services.ru/)
+
 ## Покрытие кода (JaCoCo отчёт)
+
 | Класс | Пропущено инструкций | Покрытие | Методы | Классы |
 |-------|----------------------|----------|--------|--------|
 | **Burger** | 0 из 133 | **100%** ✅ | 7/7 | 1/1 |
@@ -18,6 +22,9 @@
 ✅ Исправлены magic numbers в параметризованных тестах  
 ✅ В соответствии с требованиями задания, тестируется только класс `Burger`
 
+## Приложенный отчёт
+Отчёт JaCoCo о покрытии кода приложен в папке `target/site/jacoco/` (архив `site.zip` в пулл-реквесте).
+
 ## Технологии
 - Java 11
 - JUnit 4
@@ -30,3 +37,10 @@
 mvn clean test
 mvn jacoco:report
 Отчёт о покрытии будет создан в: target/site/jacoco/index.html
+
+Для просмотра отчёта можно использовать команду:
+
+bash
+open target/site/jacoco/index.html  # macOS
+start target/site/jacoco/index.html # Windows
+xdg-open target/site/jacoco/index.html # Linux

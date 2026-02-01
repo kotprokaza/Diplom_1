@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
@@ -35,14 +36,12 @@ public class BurgerTest {
     @Test
     public void testSetBuns() {
         burger.setBuns(mockBun);
-        // В реальном коде нужно было бы добавить геттер для bun
-        assertTrue(true); // Проверка, что метод выполняется без ошибок
+        assertTrue(true);
     }
 
     @Test
     public void testAddIngredient() {
         burger.addIngredient(mockIngredientSauce);
-        // Проверка, что метод выполняется без ошибок
         assertTrue(true);
     }
 
@@ -91,11 +90,13 @@ public class BurgerTest {
         burger.addIngredient(mockIngredientFilling);
 
         String receipt = burger.getReceipt();
-        assertNotNull(receipt);
-        assertTrue(receipt.contains("black bun"));
-        assertTrue(receipt.contains("sour cream"));
-        assertTrue(receipt.contains("cutlet"));
-        assertTrue(receipt.contains("Price:"));
+        String expectedReceipt = "(==== black bun ====)\n" +
+                                 "= sauce sour cream =\n" +
+                                 "= filling cutlet =\n" +
+                                 "(==== black bun ====)\n\n" +
+                                 "Price: 320,000000\n";
+
+        assertEquals(expectedReceipt, receipt);
     }
 
     @Test
@@ -104,11 +105,13 @@ public class BurgerTest {
         when(mockBun.getPrice()).thenReturn(100.0f);
 
         burger.setBuns(mockBun);
-        
+
         String receipt = burger.getReceipt();
-        assertNotNull(receipt);
-        assertTrue(receipt.contains("black bun"));
-        assertTrue(receipt.contains("Price:"));
+        String expectedReceipt = "(==== black bun ====)\n" +
+                                 "(==== black bun ====)\n\n" +
+                                 "Price: 200,000000\n";
+
+        assertEquals(expectedReceipt, receipt);
     }
 
     @Test
@@ -117,10 +120,12 @@ public class BurgerTest {
         when(mockBun.getPrice()).thenReturn(80.0f);
 
         burger.setBuns(mockBun);
-        
+
         String receipt = burger.getReceipt();
-        assertNotNull(receipt);
-        assertTrue(receipt.contains("white bun"));
-        assertTrue(receipt.contains("Price: 160"));
+        String expectedReceipt = "(==== white bun ====)\n" +
+                                 "(==== white bun ====)\n\n" +
+                                 "Price: 160,000000\n";
+
+        assertEquals(expectedReceipt, receipt);
     }
 }
